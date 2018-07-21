@@ -143,6 +143,8 @@
                 storageRef.getDownloadURL().then(function(imageUrl){
                             console.log(imageUrl);
                 var database = firebase.database().ref("images").child(category);
+                var databasefornew = firebase.database().ref("images").child("new");
+                var imageidfornew = databasefornew.push().key;
 
                 var imageid = database.push().key;
 
@@ -154,6 +156,10 @@
                         };
 
                     database.child(imageid).set(image, function(err){
+                        alert("Image saved..");
+                        resetForm();
+                    });
+                    databasefornew.child(imageidfornew).set(image, function(err){
                         alert("Image saved..");
                         resetForm();
                     });
