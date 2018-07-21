@@ -129,12 +129,16 @@
                        
                         };
 
-                  
-                   
-                    databasefornew.child(imageidfornew).set(image, function(err){
+                     database.child(imageid).set(image, function(err){
                         alert("Image saved..");
                         resetForm();
-                    });
+                  
+                     });
+                   
+                     databasefornew.child(imageidfornew).set(image, function(err){
+                        alert("Image saved..");
+                        resetForm();
+                      });
                 });    
             }
         );
